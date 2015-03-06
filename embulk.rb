@@ -8,10 +8,7 @@ class Embulk < Formula
 
   def install
     libexec.install "embulk-#{version}.jar"
-
-    (bin/"embulk").write <<-EOS.undent
-      #!/bin/sh
-      java -jar #{libexec}/embulk-#{version}.jar
-    EOS
+    chmod 0555, libexec/"embulk-#{version}.jar"
+    bin.install_symlink libexec/"embulk-#{version}.jar" => "embulk"
   end
 end
