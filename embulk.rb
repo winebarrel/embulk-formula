@@ -7,8 +7,9 @@ class Embulk < Formula
   sha1 '1d4fabbeaf93a672ba6ea1c811f0608fef10ca9c'
 
   def install
-    libexec.install "embulk-#{version}.jar"
-    chmod 0555, libexec/"embulk-#{version}.jar"
-    bin.install_symlink libexec/"embulk-#{version}.jar" => "embulk"
+    embulk_jar = "embulk-#{version}.jar"
+    libexec.install embulk_jar
+    chmod 0555, libexec/embulk_jar
+    bin.install_symlink libexec/embulk_jar => "embulk"
   end
 end
